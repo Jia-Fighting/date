@@ -13,8 +13,9 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 11
+
     - name: Attach POM
-        plugins:
+      plugins:
           - groupId: org.codehaus.mojo
             artifactId: build-helper-maven-plugin
             version: 3.2.0
@@ -25,6 +26,9 @@ jobs:
                   artifacts:
                     - file: path/to/new/pom.xml
                       type: pom
+    steps:
+
+
     - name: Purge local repository
       run: mvn dependency:purge-local-repository
     - name: Build with Maven
